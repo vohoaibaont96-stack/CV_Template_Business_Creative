@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { tailwindBrand, tailwindCv } from "./src/color/theme";
 
 const config: Config = {
   content: [
@@ -9,24 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          charcoal: "#1c1917",
-          warm: "#292524",
-          espresso: "#44403c",
-          coral: "#e85d4c",
-          terracotta: "#c45c3e",
-          gold: "#c9a227",
-          cream: "#faf7f2",
-          blush: "#f5ebe6",
-          mist: "#ede8e3",
-          paper: "#fdfcfa",
-        },
-        cv: {
-          ink: "#1c1917",
-          body: "#44403c",
-          muted: "#78716c",
-          line: "#d6d3d1",
-        },
+        brand: { ...tailwindBrand },
+        cv: { ...tailwindCv },
       },
       fontFamily: {
         sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],

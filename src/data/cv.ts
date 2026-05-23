@@ -5,6 +5,7 @@
  * Bản tiếng Anh: bấm "English" trên website.
  *
  * Hướng dẫn: src/data/HUONG_DAN_NHAP_LIEU.md
+ * Màu sắc: src/color/theme.ts
  */
 
 export interface Certification {

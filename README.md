@@ -24,6 +24,10 @@ Mẫu CV **một trang A4** cho **designer**, **content creator** và **visual b
 - Carousel tự động chuyển slide (~4.5s), có nút prev/next và chấm chọn
 - Xem `public/gallery/README.md`
 
+## Màu sắc
+
+Chỉnh tại **`src/color/theme.ts`** — hướng dẫn: [`src/color/HUONG_DAN_DOI_MAU.md`](src/color/HUONG_DAN_DOI_MAU.md)
+
 ## Dữ liệu
 
 | File | Mục đích |

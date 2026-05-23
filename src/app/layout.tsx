@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { getThemeCssBlock } from "@/color/theme";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -37,6 +38,9 @@ export default function RootLayout({
       lang="vi"
       className={`${jakarta.variable} ${playfair.variable} ${instrumentSerif.variable}`}
     >
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: getThemeCssBlock() }} />
+      </head>
       <body className="font-sans">{children}</body>
     </html>
   );
