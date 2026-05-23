@@ -4,6 +4,8 @@ Mẫu CV cho **thiết kế hình ảnh**, **sáng tạo nội dung** và **visu
 
 **Ảnh đại diện** (sidebar): `src/avatar/config.ts` — xem `src/avatar/HUONG_DAN_ANH_DAI_DIEN.md`.
 
+**Font Google**: `src/font/config.ts` — xem `src/font/HUONG_DAN_DOI_FONT.md`.
+
 ## Ngôn ngữ
 
 - **Chỉ nhập tiếng Việt** trong `cv.ts`.

@@ -14,8 +14,8 @@ const config: Config = {
         cv: { ...tailwindCv },
       },
       fontFamily: {
-        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-accent)", "Georgia", "serif"],
         playfair: ["var(--font-display)", "Georgia", "serif"],
       },
     },

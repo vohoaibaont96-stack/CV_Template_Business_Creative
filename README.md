@@ -5,7 +5,7 @@ Mẫu CV **một trang A4** cho **designer**, **content creator** và **visual b
 ## Điểm nhấn thiết kế
 
 - Palette **charcoal + coral + gold** (không tone IT/xanh cyan)
-- Typography **Playfair Display** + Jakarta — cảm giác portfolio creative
+- Typography Google Fonts — cấu hình tại `src/font/config.ts` (mặc định Playfair + Jakarta)
 - Sidebar: Năng lực sáng tạo (thiết kế, nội dung, phần mềm, kênh)
 - Dự án dạng **case study** — Behance, chiến dịch social, rebrand
 - Liên hệ: Portfolio · LinkedIn · Instagram
@@ -27,6 +27,10 @@ Mẫu CV **một trang A4** cho **designer**, **content creator** và **visual b
 ## Màu sắc
 
 Chỉnh tại **`src/color/theme.ts`** — hướng dẫn: [`src/color/HUONG_DAN_DOI_MAU.md`](src/color/HUONG_DAN_DOI_MAU.md)
+
+## Font chữ (Google Fonts)
+
+Chỉnh tại **`src/font/config.ts`** — hướng dẫn: [`src/font/HUONG_DAN_DOI_FONT.md`](src/font/HUONG_DAN_DOI_FONT.md)
 
 ## Ảnh đại diện
 
