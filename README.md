@@ -1,14 +1,14 @@
-# CV Template — Business Creative × Tech Engineering
+# CV Template — Business Creative
 
-Mẫu CV **một trang A4** cho sinh viên Tech — phong cách **business-creative**: năng động, có chiều sâu thị giác, vẫn **chuẩn ATS** (text thật, không thanh % kỹ năng). Deploy trên **Vercel**.
+Mẫu CV **một trang A4** cho **designer**, **content creator** và **visual brand** — editorial, ấm, chuẩn ATS. Deploy trên **Vercel**.
 
 ## Điểm nhấn thiết kế
 
-- Header navy gradient + tagline serif + chip điểm mạnh
-- Sidebar tối với skill pills — cảm giác portfolio chuyên nghiệp
-- Cột phải editorial: đánh số mục (01–04), project cards có accent bar
-- Typography: **Plus Jakarta Sans** + **Instrument Serif**
-- Màu: navy, ocean blue, accent cyan — tin cậy & năng động
+- Palette **charcoal + coral + gold** (không tone IT/xanh cyan)
+- Typography **Playfair Display** + Jakarta — cảm giác portfolio creative
+- Sidebar: Năng lực sáng tạo (thiết kế, nội dung, phần mềm, kênh)
+- Dự án dạng **case study** — Behance, chiến dịch social, rebrand
+- Liên hệ: Portfolio · LinkedIn · Instagram
 
 ## Ngôn ngữ
 

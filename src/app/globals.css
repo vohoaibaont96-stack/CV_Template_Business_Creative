@@ -8,19 +8,14 @@
   }
 
   body {
-    @apply bg-[#ebe8e3] text-cv-ink;
+    @apply bg-brand-mist text-cv-ink;
   }
 }
 
-/* ——— Studio preview (designer / creative) ——— */
+/* Studio preview - designer / creative */
 .preview-shell {
   min-height: 100vh;
-  background-color: #ebe8e3;
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(26, 77, 124, 0.08), transparent),
-    linear-gradient(rgba(15, 39, 68, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 39, 68, 0.03) 1px, transparent 1px);
-  background-size: auto, 24px 24px, 24px 24px;
+  background-color: #ede8e3;
 }
 
 .preview-toolbar {
@@ -56,7 +51,7 @@
   width: 3px;
   height: 2rem;
   border-radius: 2px;
-  background: linear-gradient(180deg, #00b4d8, #0f2744);
+  background: linear-gradient(180deg, #e85d4c, #c9a227);
 }
 
 .preview-toolbar__name {
@@ -64,7 +59,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #0f2744;
+  color: #1c1917;
 }
 
 .preview-toolbar__meta {
@@ -133,8 +128,8 @@
 
 .preview-stage .cv-page:not(.cv-loading) {
   box-shadow:
-    0 32px 64px -20px rgba(15, 39, 68, 0.22),
-    0 0 0 1px rgba(15, 39, 68, 0.06);
+    0 32px 64px -20px rgba(28, 25, 23, 0.18),
+    0 0 0 1px rgba(28, 25, 23, 0.05);
 }
 
 .preview-btn {
@@ -159,13 +154,13 @@
 
 .preview-btn--ghost {
   background: transparent;
-  color: #0f2744;
-  border: 1px solid rgba(15, 39, 68, 0.15);
+  color: #1c1917;
+  border: 1px solid rgba(28, 25, 23, 0.12);
 }
 
 .preview-btn--ghost:hover:not(:disabled) {
-  border-color: #1a4d7c;
-  background: rgba(255, 255, 255, 0.6);
+  border-color: #e85d4c;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .preview-btn__code {
@@ -175,7 +170,7 @@
   font-size: 0.625rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #1a4d7c;
+  color: #c45c3e;
 }
 
 .preview-btn__label {
@@ -183,14 +178,14 @@
 }
 
 .preview-btn--primary {
-  background: #0f2744;
+  background: #1c1917;
   color: #fff;
-  box-shadow: 0 2px 12px rgba(15, 39, 68, 0.2);
+  box-shadow: 0 2px 12px rgba(28, 25, 23, 0.18);
 }
 
 .preview-btn--primary:hover {
-  background: #1a4d7c;
-  box-shadow: 0 4px 16px rgba(15, 39, 68, 0.28);
+  background: #44403c;
+  box-shadow: 0 4px 16px rgba(232, 93, 76, 0.2);
 }
 
 .preview-btn__icon {
@@ -211,8 +206,8 @@
 .cv-loading__spinner {
   width: 2rem;
   height: 2rem;
-  border: 2px solid #e2e8f0;
-  border-top-color: #00b4d8;
+  border: 2px solid #e7e5e4;
+  border-top-color: #e85d4c;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
@@ -237,15 +232,15 @@
   max-height: 297mm;
   overflow: hidden;
   box-sizing: border-box;
+  box-shadow: 0 25px 50px -12px rgba(28, 25, 23, 0.2);
 }
 
 .cv-body {
   height: calc(297mm - 118px);
 }
 
-/* Sidebar gradient + pattern */
 .cv-sidebar {
-  background: linear-gradient(175deg, #0a1a2e 0%, #0f2744 45%, #1a4d7c 100%);
+  background: linear-gradient(165deg, #1c1917 0%, #292524 55%, #44403c 100%);
   position: relative;
 }
 
@@ -255,62 +250,121 @@
   inset: 0;
   background-image: radial-gradient(
     circle at 100% 0%,
-    rgba(0, 180, 216, 0.12) 0%,
-    transparent 50%
+    rgba(232, 93, 76, 0.14) 0%,
+    transparent 55%
   );
   pointer-events: none;
 }
 
-/* Header diagonal cut */
 .cv-header-cut {
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), 0 100%);
 }
 
 .cv-header-accent {
-  background: linear-gradient(90deg, #00b4d8 0%, #2d7ab8 50%, #0f2744 100%);
+  background: linear-gradient(90deg, #e85d4c 0%, #c9a227 45%, #1c1917 100%);
 }
 
-@layer components {
-  .section-num {
-    @apply font-sans text-[8px] font-bold tracking-[0.2em] text-brand-accent;
-  }
+.cv-header-glow {
+  background: radial-gradient(circle, rgba(232, 93, 76, 0.35) 0%, transparent 70%);
+}
 
-  .section-heading {
-    @apply font-sans text-[9.5px] font-bold uppercase tracking-[0.14em] text-brand-navy;
-  }
+.section-num {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #e85d4c;
+}
 
-  .sidebar-heading {
-    @apply mb-2 font-sans text-[8px] font-bold uppercase tracking-[0.18em] text-brand-glow/90;
-  }
+.section-heading {
+  font-size: 9.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #1c1917;
+}
 
-  .skill-pill {
-    @apply inline-block rounded-sm border border-white/15 bg-white/10 px-1.5 py-px text-[7.5px] font-medium leading-tight text-white/95;
-  }
+.sidebar-heading {
+  margin-bottom: 0.5rem;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(201, 162, 39, 0.9);
+}
 
-  .tech-pill {
-    @apply inline-block rounded border border-brand-ocean/20 bg-brand-mist px-1.5 py-px text-[7.5px] font-semibold text-brand-ocean;
-  }
+.skill-pill {
+  display: inline-block;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1px 6px;
+  font-size: 7.5px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.95);
+}
 
-  .project-card {
-    @apply relative rounded-sm border border-cv-line/80 bg-white pl-3 pr-2 py-1.5 shadow-card;
-  }
+.creative-pill {
+  display: inline-block;
+  border-radius: 2px;
+  border: 1px solid rgba(232, 93, 76, 0.25);
+  background: #f5ebe6;
+  padding: 1px 6px;
+  font-size: 7.5px;
+  font-weight: 500;
+  color: #c45c3e;
+}
 
-  .project-card::before {
-    content: "";
-    @apply absolute left-0 top-1 bottom-1 w-[3px] rounded-full bg-gradient-to-b from-brand-accent to-brand-ocean;
-  }
+.project-card {
+  position: relative;
+  border-radius: 2px;
+  border: 1px solid rgba(214, 211, 209, 0.8);
+  background: white;
+  padding: 6px 8px 6px 12px;
+  box-shadow: 0 4px 16px -6px rgba(232, 93, 76, 0.1);
+}
 
-  .contact-chip {
-    @apply text-[7.5px] leading-snug text-white/85;
-  }
+.shadow-card {
+  box-shadow: 0 4px 16px -6px rgba(232, 93, 76, 0.1);
+}
 
-  .contact-chip a {
-    @apply text-white hover:text-brand-glow transition-colors;
-  }
+.project-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #e85d4c, #c9a227);
+}
 
-  .highlight-chip {
-    @apply inline-flex items-center rounded-full border border-brand-accent/40 bg-brand-accent/10 px-2 py-0.5 text-[7.5px] font-semibold uppercase tracking-wide text-brand-sky;
-  }
+.contact-chip {
+  font-size: 7.5px;
+  line-height: 1.375;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-chip a {
+  color: white;
+  transition: color 0.2s;
+}
+
+.contact-chip a:hover {
+  color: #c9a227;
+}
+
+.highlight-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 @page {

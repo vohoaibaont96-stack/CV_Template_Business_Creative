@@ -1,8 +1,8 @@
 /**
- * CV — Business Creative × Tech Engineering
+ * CV — Business Creative (Designer · Sáng tạo nội dung)
  *
  * ⚠️ CHỈ NHẬP NỘI DUNG BẰNG TIẾNG VIỆT tại file này.
- * Bản tiếng Anh được dịch tự động khi bấm nút "English" trên website.
+ * Bản tiếng Anh: bấm "English" trên website.
  *
  * Hướng dẫn: src/data/HUONG_DAN_NHAP_LIEU.md
  */
@@ -28,11 +28,12 @@ export interface Project {
   name: string;
   role: string;
   period: string;
-  techStack: string[];
+  /** Công cụ / phần mềm / kênh liên quan dự án */
+  tools: string[];
   summary: string;
   bullets: string[];
   result?: string;
-  githubUrl?: string;
+  portfolioUrl?: string;
 }
 
 export interface Activity {
@@ -45,21 +46,21 @@ export interface CVData {
   header: {
     fullName: string;
     position: string;
-    /** Câu tagline ngắn — thể hiện năng lượng & định hướng (1 dòng) */
     tagline: string;
-    /** 3–4 từ khóa nổi bật hiển thị dưới tên (vd: React · Agile · Problem Solver) */
     highlights: string[];
     phone: string;
     email: string;
     address: string;
-    github: string;
+    /** Behance / Dribbble / website portfolio — bắt buộc */
+    portfolio: string;
     linkedin: string;
+    instagram?: string;
   };
-  technicalSkills: {
-    languages: string[];
-    frameworks: string[];
-    tools: string[];
-    databases: string[];
+  creativeSkills: {
+    design: string[];
+    content: string[];
+    software: string[];
+    media: string[];
   };
   certifications: Certification[];
   languages: LanguageSkill[];
@@ -72,92 +73,121 @@ export interface CVData {
 export const cvData: CVData = {
   header: {
     fullName: "[NGUYỄN VĂN A]",
-    position: "[Frontend Developer] Intern",
+    position: "[Content Creator / Graphic Designer] Intern",
     tagline:
-      "Sinh viên CNTT chủ động, thích ship sản phẩm nhanh — sẵn sàng học hỏi và đóng góp ngay từ ngày đầu thực tập.",
-    highlights: ["React & Next.js", "Làm việc nhóm", "Tư duy sản phẩm", "Git / Agile"],
+      "Đam mê kể chuyện bằng hình ảnh và nội dung số — mong tạo ra những ấn phẩm visual nhất quán, có chiều sâu thương hiệu.",
+    highlights: [
+      "Visual Storytelling",
+      "Social Content",
+      "Brand Identity",
+      "Reels / Short-form",
+    ],
     phone: "[0901 234 567]",
     email: "[ten.cua.ban@email.com]",
     address: "[Quận/Huyện, TP. Hồ Chí Minh]",
-    github: "https://github.com/[username-github]",
+    portfolio: "https://behance.net/[username]",
     linkedin: "https://linkedin.com/in/[username-linkedin]",
+    instagram: "https://instagram.com/[username]",
   },
 
-  technicalSkills: {
-    languages: ["JavaScript", "TypeScript", "Python", "C++"],
-    frameworks: ["React", "Next.js", "Node.js", "Express"],
-    tools: ["Git", "Docker", "Linux", "Figma", "Vercel"],
-    databases: ["PostgreSQL", "MySQL", "MongoDB"],
+  creativeSkills: {
+    design: [
+      "Layout & Composition",
+      "Typography",
+      "Color Theory",
+      "Brand Guideline",
+    ],
+    content: [
+      "Copywriting ngắn",
+      "Content Calendar",
+      "Script Reels/TikTok",
+      "Hashtag Strategy",
+    ],
+    software: [
+      "Adobe Photoshop",
+      "Illustrator",
+      "Premiere Pro",
+      "Figma",
+      "Canva Pro",
+    ],
+    media: [
+      "Instagram",
+      "TikTok",
+      "Facebook Ads",
+      "CapCut",
+      "Lightroom",
+    ],
   },
 
   certifications: [
-    { name: "[AWS Cloud Practitioner]", detail: "AWS — [2024]" },
-    { name: "[TOEIC 750+]", detail: "ETS — [2023]" },
+    { name: "[Google Digital Garage]", detail: "Fundamentals of Digital Marketing — [2024]" },
+    { name: "[Adobe Certified Professional]", detail: "Visual Design — [2023]" },
   ],
 
   languages: [
     {
       name: "Tiếng Anh",
-      level: "Đọc hiểu tài liệu kỹ thuật · trình bày ý tưởng trong nhóm dev",
+      level: "Đọc brief, viết caption và trao đổi ý tưởng creative với team",
     },
-    { name: "Tiếng Việt", level: "Bản ngữ" },
+    { name: "Tiếng Việt", level: "Bản ngữ · copywriting" },
   ],
 
   careerObjective:
-    "Định hướng trở thành [Frontend Engineer] trong môi trường product-driven. Tôi mang đến tư duy xây dựng giao diện rõ ràng, code có cấu trúc và tinh thần ownership — luôn tìm cách cải thiện trải nghiệm người dùng và hiệu suất hệ thống. Mong được đồng hành cùng đội ngũ để biến ý tưởng thành sản phẩm thật, đồng thời nâng cao kỹ năng quy trình Agile & code review chuyên nghiệp.",
+    "Sinh viên [Thiết kế Đồ họa / Truyền thông] hướng tới vai trò [Content Creator & Designer] tại agency hoặc in-house brand. Tôi kết hợp mắt thẩm mỹ, tư duy nội dung và nhịp làm việc nhanh để sản xuất bộ nhận diện, post social và video ngắn đồng bộ. Mong được học hỏi quy trình brief–concept–delivery từ team senior và đóng góp ý tưởng fresh cho chiến dịch thực tế.",
 
   education: [
     {
-      school: "[Đại học Bách Khoa TP.HCM]",
-      major: "[Kỹ thuật Phần mềm / Công nghệ Thông tin]",
+      school: "[Đại học Mỹ thuật TP.HCM / Học viện FPT Arena]",
+      major: "[Thiết kế Đồ họa / Truyền thông Đa phương tiện]",
       period: "[2021 – 2025]",
-      gpa: "GPA [3.45/4.0]",
+      gpa: "GPA [3.5/4.0]",
     },
   ],
 
   projects: [
     {
-      name: "[Hệ thống Quản lý Thư viện Số]",
-      role: "Fullstack Developer",
-      period: "[03 – 06/2024]",
-      techStack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
+      name: "[Rebrand Concept — Thương hiệu F&B địa phương]",
+      role: "Lead Designer · Content",
+      period: "[02 – 05/2024]",
+      tools: ["Illustrator", "Photoshop", "Figma", "Instagram"],
       summary:
-        "Nền tảng web mượn–trả sách, tìm kiếm thời gian thực và phân quyền Admin/User cho thư viện khoa.",
+        "Xây dựng concept nhận diện và bộ post launch cho quán cà phê specialty — tone ấm, hiện đại, Gen Z.",
       bullets: [
-        "Thiết kế UI responsive theo design system nội bộ; đạt LCP < 2.5s nhờ tối ưu font & image.",
-        "Xây REST API + JWT/bcrypt; kiến trúc module hóa giúp onboard thành viên mới trong 1 ngày.",
-        "Tối ưu Prisma (index, selective query) — giảm ~20% latency API danh sách sách.",
+        "Phát triển logo, palette, typography và 12 template post đồng bộ trên Figma.",
+        "Viết caption + script 4 Reels giới thiệu sản phẩm; tăng ~35% tương tác so với mức trung bình trang trước đó.",
+        "Trình bày case study trên Behance — được giảng viên chọn trưng bày cuối khóa.",
       ],
-      result: "Điểm đồ án [9.0/10] · Deploy production trên Vercel",
-      githubUrl: "https://github.com/[username]/[library-project]",
+      result: "Điểm đồ án [9.2/10]",
+      portfolioUrl: "https://behance.net/[username]/[fnb-rebrand]",
     },
     {
-      name: "[Expense Tracker — Ứng dụng Quản lý Chi tiêu]",
-      role: "Team Lead · Backend",
-      period: "[09 – 12/2023]",
-      techStack: ["React", "Node.js", "MongoDB", "Docker"],
+      name: "[Chiến dịch Social — Tuần lễ Sinh viên]",
+      role: "Visual & Content Creator",
+      period: "[09 – 11/2023]",
+      tools: ["Premiere Pro", "CapCut", "Canva", "TikTok", "Facebook"],
       summary:
-        "SPA theo dõi thu–chi cá nhân với biểu đồ xu hướng và phân loại thông minh theo danh mục.",
+        "Sản xuất visual và nội dung cho chiến dịch 3 tuần trên TikTok + Facebook — 20+ ấn phẩm static & 6 video ngắn.",
       bullets: [
-        "Dẫn dắt nhóm 4 người, sprint 2 tuần; phân rõ backlog, review code và demo cuối sprint.",
-        "Aggregation pipeline MongoDB cho báo cáo theo kỳ — giảm thao tác thủ công cho người dùng.",
-        "Docker Compose chuẩn hóa môi trường dev — team setup dưới 15 phút.",
+        "Lên content pillar, lịch đăng và moodboard; phối hợp 3 bạn copy + quay phim trong nhóm lớp.",
+        "Thiết kế KV chính, story template và sticker pack; duy trì nhất quán visual xuyên suốt chiến dịch.",
+        "Video recap đạt [120K+ views] organic; học cách A/B test thumbnail và hook 3 giây đầu.",
       ],
-      result: "MVP đúng deadline · Tài liệu API Swagger đầy đủ",
-      githubUrl: "https://github.com/[username]/[expense-tracker]",
+      result: "Hoàn thành đúng timeline · Nhận feedback tích cực từ ban tổ chức",
+      portfolioUrl: "https://behance.net/[username]/[student-week]",
     },
   ],
 
   activities: [
     {
-      title: "[Hackathon SVIT 2024]",
-      period: "[11/2024]",
-      description: "Giải Khuyến khích — prototype [IoT/AI] trong 48h, phối hợp cross-functional 5 người.",
+      title: "[CLB Truyền thông & Sáng tạo — ĐH]",
+      period: "[2022 – nay]",
+      description:
+        "Thiết kế poster sự kiện, cover album yearbook và hỗ trợ quay/edit highlight cuối năm.",
     },
     {
-      title: "[CLB Lập trình — PTIT/BK]",
-      period: "[2022 – nay]",
-      description: "Workshop Git & Clean Code; mentor HTML/CSS cho tân sinh viên.",
+      title: "[Workshop “Visual Storytelling 101”]",
+      period: "[03/2024]",
+      description: "Facilitator nhóm 15 bạn — chia sẻ quy trình moodboard → layout → publish.",
     },
   ],
 };

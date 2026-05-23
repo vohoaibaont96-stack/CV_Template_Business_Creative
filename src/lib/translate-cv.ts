@@ -1,7 +1,7 @@
 import type { CVData } from "@/data/cv";
 import { translateTextFree } from "@/lib/translate-providers";
 
-/** Không dịch URL, email, SĐT, tên công nghệ thuần Latin */
+/** Không dịch URL, email, SĐT; giữ tên phần mềm / kênh Latin */
 export function shouldSkipTranslation(text: string): boolean {
   const t = text.trim();
   if (!t) return true;
@@ -59,10 +59,10 @@ function collectTranslatableStrings(data: CVData, set: Set<string>) {
   add(data.header.address);
 
   [
-    ...data.technicalSkills.languages,
-    ...data.technicalSkills.frameworks,
-    ...data.technicalSkills.tools,
-    ...data.technicalSkills.databases,
+    ...data.creativeSkills.design,
+    ...data.creativeSkills.content,
+    ...data.creativeSkills.software,
+    ...data.creativeSkills.media,
   ].forEach(add);
 
   data.certifications.forEach((c) => {
@@ -90,7 +90,7 @@ function collectTranslatableStrings(data: CVData, set: Set<string>) {
     add(p.summary);
     p.bullets.forEach(add);
     add(p.result);
-    p.techStack.forEach(add);
+    p.tools.forEach(add);
   });
 
   data.activities.forEach((a) => {
@@ -128,11 +128,11 @@ export async function translateCVData(data: CVData): Promise<CVData> {
       highlights: data.header.highlights.map((h) => applyMap(h, map)),
       address: applyMap(data.header.address, map),
     },
-    technicalSkills: {
-      languages: data.technicalSkills.languages.map((s) => applyMap(s, map)),
-      frameworks: data.technicalSkills.frameworks.map((s) => applyMap(s, map)),
-      tools: data.technicalSkills.tools.map((s) => applyMap(s, map)),
-      databases: data.technicalSkills.databases.map((s) => applyMap(s, map)),
+    creativeSkills: {
+      design: data.creativeSkills.design.map((s) => applyMap(s, map)),
+      content: data.creativeSkills.content.map((s) => applyMap(s, map)),
+      software: data.creativeSkills.software.map((s) => applyMap(s, map)),
+      media: data.creativeSkills.media.map((s) => applyMap(s, map)),
     },
     certifications: data.certifications.map((c) => ({
       name: applyMap(c.name, map),
@@ -158,7 +158,7 @@ export async function translateCVData(data: CVData): Promise<CVData> {
       summary: applyMap(p.summary, map),
       bullets: p.bullets.map((b) => applyMap(b, map)),
       result: p.result ? applyMap(p.result, map) : undefined,
-      techStack: p.techStack.map((t) => applyMap(t, map)),
+      tools: p.tools.map((t) => applyMap(t, map)),
     })),
     activities: data.activities.map((a) => ({
       ...a,

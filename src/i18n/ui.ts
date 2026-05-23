@@ -6,16 +6,17 @@ export type UILabels = {
     phone: string;
     email: string;
     location: string;
-    github: string;
+    portfolio: string;
     linkedin: string;
+    instagram: string;
   };
   sidebar: {
-    technicalSkills: string;
+    creativeSkills: string;
     skillGroups: {
-      languages: string;
-      frameworks: string;
-      tools: string;
-      databases: string;
+      design: string;
+      content: string;
+      software: string;
+      media: string;
     };
     certifications: string;
     languages: string;
@@ -26,7 +27,8 @@ export type UILabels = {
     education: string;
     projects: string;
     activities: string;
-    viewSource: string;
+    viewPortfolio: string;
+    toolsLabel: string;
   };
   page: {
     brand: string;
@@ -42,37 +44,39 @@ export type UILabels = {
 
 export const uiLabels: Record<Locale, UILabels> = {
   vi: {
-    cvDocument: "Sơ yếu lý lịch",
+    cvDocument: "Portfolio & CV",
     contact: {
       phone: "Điện thoại",
       email: "Email",
       location: "Địa chỉ",
-      github: "GitHub",
+      portfolio: "Portfolio",
       linkedin: "LinkedIn",
+      instagram: "Instagram",
     },
     sidebar: {
-      technicalSkills: "Kỹ năng chuyên môn",
+      creativeSkills: "Năng lực sáng tạo",
       skillGroups: {
-        languages: "Ngôn ngữ lập trình",
-        frameworks: "Framework / Thư viện",
-        tools: "Công cụ / Nền tảng",
-        databases: "Cơ sở dữ liệu",
+        design: "Thiết kế hình ảnh",
+        content: "Sáng tạo nội dung",
+        software: "Phần mềm",
+        media: "Kênh & định dạng",
       },
-      certifications: "Chứng chỉ",
-      languages: "Ngoại ngữ",
-      footer: "Business Creative",
+      certifications: "Chứng chỉ & khóa học",
+      languages: "Ngôn ngữ",
+      footer: "Design · Content · Visual",
     },
     main: {
-      careerObjective: "Mục tiêu nghề nghiệp",
+      careerObjective: "Định hướng & mục tiêu",
       education: "Học vấn",
-      projects: "Dự án tiêu biểu",
-      activities: "Hoạt động",
-      viewSource: "→ Portfolio GitHub",
+      projects: "Dự án & case study",
+      activities: "Kinh nghiệm & hoạt động",
+      viewPortfolio: "→ Xem trên Portfolio",
+      toolsLabel: "Công cụ",
     },
     page: {
       brand: "Business Creative",
       previewLabel: "Xem trước",
-      subtitle: "Designer · Sáng tạo nội dung · Marketing · Tech",
+      subtitle: "Thiết kế hình ảnh · Sáng tạo nội dung · Visual Brand",
       print: "Xuất PDF",
       switchToEn: "English",
       switchToVi: "Tiếng Việt",
@@ -81,37 +85,39 @@ export const uiLabels: Record<Locale, UILabels> = {
     },
   },
   en: {
-    cvDocument: "Curriculum Vitae",
+    cvDocument: "Portfolio & CV",
     contact: {
       phone: "Phone",
       email: "Email",
       location: "Location",
-      github: "GitHub",
+      portfolio: "Portfolio",
       linkedin: "LinkedIn",
+      instagram: "Instagram",
     },
     sidebar: {
-      technicalSkills: "Technical Skills",
+      creativeSkills: "Creative Skills",
       skillGroups: {
-        languages: "Languages",
-        frameworks: "Frameworks / Libraries",
-        tools: "Tools / Platforms",
-        databases: "Databases",
+        design: "Visual Design",
+        content: "Content Creation",
+        software: "Software",
+        media: "Channels & Formats",
       },
-      certifications: "Certifications",
+      certifications: "Certifications & Courses",
       languages: "Languages",
-      footer: "Business Creative",
+      footer: "Design · Content · Visual",
     },
     main: {
-      careerObjective: "Career Objective",
+      careerObjective: "Creative Direction & Goals",
       education: "Education",
-      projects: "Featured Work",
-      activities: "Activities",
-      viewSource: "→ View Portfolio",
+      projects: "Projects & Case Studies",
+      activities: "Experience & Activities",
+      viewPortfolio: "→ View Case Study",
+      toolsLabel: "Tools",
     },
     page: {
       brand: "Business Creative",
       previewLabel: "Preview",
-      subtitle: "Designer · Creative · Content · Tech",
+      subtitle: "Visual Design · Content Creation · Brand",
       print: "Export PDF",
       switchToEn: "English",
       switchToVi: "Tiếng Việt",

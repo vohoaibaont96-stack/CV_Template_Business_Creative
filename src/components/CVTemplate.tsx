@@ -20,8 +20,8 @@ function MainSection({
     <section className={className}>
       <div className="mb-1 flex items-baseline gap-2">
         <span className="section-num">{num}</span>
-        <h2 className="section-heading">{title}</h2>
-        <span className="ml-auto h-px flex-1 max-w-[40%] bg-gradient-to-r from-brand-accent/50 to-transparent" />
+        <h2 className="section-heading font-playfair">{title}</h2>
+        <span className="ml-auto h-px flex-1 max-w-[8rem] bg-gradient-to-r from-brand-coral/40 to-transparent" />
       </div>
       {children}
     </section>
@@ -66,7 +66,7 @@ function ContactItem({
 }) {
   return (
     <div className="contact-chip">
-      <span className="block text-[6.5px] font-bold uppercase tracking-widest text-brand-glow/70">
+      <span className="block text-[6.5px] font-bold uppercase tracking-widest text-brand-gold/80">
         {label}
       </span>
       {href ? (
@@ -91,41 +91,38 @@ export default function CVTemplate({
   labels,
   locale = "vi",
 }: CVTemplateProps) {
-  const { header, technicalSkills } = data;
+  const { header, creativeSkills } = data;
   const sg = labels.sidebar.skillGroups;
 
   return (
     <article
-      className="cv-page relative mx-auto overflow-hidden bg-white font-sans text-cv-body shadow-cv print:shadow-none"
-      aria-label={locale === "vi" ? "Sơ yếu lý lịch" : "Curriculum Vitae"}
+      className="cv-page relative mx-auto overflow-hidden bg-brand-paper font-sans text-cv-body print:shadow-none"
+      aria-label={locale === "vi" ? "Portfolio và CV sáng tạo" : "Creative Portfolio CV"}
       lang={locale}
     >
-      {/* Accent stripe */}
-      <div className="cv-header-accent h-1 w-full" aria-hidden />
+      <div className="cv-header-accent h-1.5 w-full" aria-hidden />
 
-      {/* HEADER — business band */}
-      <header className="cv-header-cut relative bg-brand-navy px-5 pb-5 pt-3.5 text-white">
-        <div className="flex items-start justify-between gap-4">
+      <header className="cv-header-cut relative bg-brand-charcoal px-5 pb-5 pt-3.5 text-white">
+        <div className="cv-header-glow pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-40" aria-hidden />
+
+        <div className="relative flex items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
-            <p className="text-[7px] font-bold uppercase tracking-[0.35em] text-brand-glow/80">
+            <p className="text-[7px] font-bold uppercase tracking-[0.38em] text-brand-gold/90">
               {labels.cvDocument}
             </p>
-            <h1 className="mt-0.5 font-sans text-[26px] font-extrabold leading-none tracking-tight text-white">
+            <h1 className="mt-0.5 font-playfair text-[27px] font-semibold leading-none tracking-tight text-white">
               {header.fullName}
             </h1>
-            <p className="mt-1 text-[12px] font-bold tracking-wide text-brand-accent">
+            <p className="mt-1.5 text-[11.5px] font-semibold tracking-wide text-brand-coral">
               {header.position}
             </p>
-            <p className="mt-1.5 max-w-[95%] font-serif text-[10px] italic leading-snug text-white/80">
+            <p className="mt-1.5 max-w-full font-serif text-[10px] italic leading-snug text-white/75 pr-2">
               {header.tagline}
             </p>
             {header.highlights.length > 0 && (
               <div className="mt-2 flex flex-wrap gap-1">
                 {header.highlights.map((h) => (
-                  <span
-                    key={h}
-                    className="rounded-full border border-white/25 bg-white/10 px-2 py-0.5 text-[7px] font-semibold uppercase tracking-wider text-white"
-                  >
+                  <span key={h} className="highlight-chip">
                     {h}
                   </span>
                 ))}
@@ -133,34 +130,56 @@ export default function CVTemplate({
             )}
           </div>
 
-          <div className="shrink-0 rounded-sm border border-white/15 bg-white/5 p-2 backdrop-blur-sm">
+          <div className="shrink-0 rounded border border-white/12 bg-white/5 p-2 backdrop-blur-sm">
             <div className="grid grid-cols-1 gap-1.5">
-              <ContactItem label={labels.contact.phone} value={header.phone} href={`tel:${header.phone.replace(/\s/g, "")}`} />
-              <ContactItem label={labels.contact.email} value={header.email} href={`mailto:${header.email}`} />
+              <ContactItem
+                label={labels.contact.phone}
+                value={header.phone}
+                href={`tel:${header.phone.replace(/\s/g, "")}`}
+              />
+              <ContactItem
+                label={labels.contact.email}
+                value={header.email}
+                href={`mailto:${header.email}`}
+              />
               <ContactItem label={labels.contact.location} value={header.address} />
-              <ContactItem label={labels.contact.github} value={stripUrl(header.github)} href={header.github} />
-              <ContactItem label={labels.contact.linkedin} value={stripUrl(header.linkedin)} href={header.linkedin} />
+              <ContactItem
+                label={labels.contact.portfolio}
+                value={stripUrl(header.portfolio)}
+                href={header.portfolio}
+              />
+              <ContactItem
+                label={labels.contact.linkedin}
+                value={stripUrl(header.linkedin)}
+                href={header.linkedin}
+              />
+              {header.instagram && (
+                <ContactItem
+                  label={labels.contact.instagram}
+                  value={stripUrl(header.instagram)}
+                  href={header.instagram}
+                />
+              )}
             </div>
           </div>
         </div>
       </header>
 
       <div className="cv-body flex">
-        {/* Sidebar 1/3 */}
-        <aside className="cv-sidebar w-[33.333%] shrink-0 px-3 py-3.5 text-white">
-          <SidebarSection title={labels.sidebar.technicalSkills}>
+        <aside className="cv-sidebar w-1/3 shrink-0 px-3 py-3.5 text-white">
+          <SidebarSection title={labels.sidebar.creativeSkills}>
             <div className="space-y-2">
               {(
                 [
-                  [sg.languages, technicalSkills.languages],
-                  [sg.frameworks, technicalSkills.frameworks],
-                  [sg.tools, technicalSkills.tools],
-                  [sg.databases, technicalSkills.databases],
+                  [sg.design, creativeSkills.design],
+                  [sg.content, creativeSkills.content],
+                  [sg.software, creativeSkills.software],
+                  [sg.media, creativeSkills.media],
                 ] as const
               ).map(([label, items]) =>
                 items.length > 0 ? (
                   <div key={label}>
-                    <p className="mb-1 text-[7px] font-semibold text-white/60">{label}</p>
+                    <p className="mb-1 text-[7px] font-semibold text-white/55">{label}</p>
                     <SkillPills items={[...items]} />
                   </div>
                 ) : null,
@@ -174,7 +193,7 @@ export default function CVTemplate({
                 {data.certifications.map((cert, i) => (
                   <li
                     key={i}
-                    className="border-l-2 border-brand-accent/60 pl-2 text-[8px] leading-snug"
+                    className="border-l-2 border-brand-coral/70 pl-2 text-[8px] leading-snug"
                   >
                     <span className="font-semibold text-white">{cert.name}</span>
                     {cert.detail && (
@@ -190,7 +209,7 @@ export default function CVTemplate({
             <ul className="space-y-1.5">
               {data.languages.map((lang, i) => (
                 <li key={i} className="text-[8px] leading-snug">
-                  <span className="font-bold text-brand-glow">{lang.name}</span>
+                  <span className="font-bold text-brand-gold">{lang.name}</span>
                   <p className="mt-0.5 text-white/70">{lang.level}</p>
                 </li>
               ))}
@@ -198,22 +217,21 @@ export default function CVTemplate({
           </SidebarSection>
 
           <div
-            className="relative z-10 mt-auto pt-2 text-[6.5px] uppercase tracking-widest text-white/40"
+            className="relative z-10 mt-auto pt-2 text-[6.5px] uppercase tracking-[0.2em] text-white/35"
             aria-hidden
           >
             {labels.sidebar.footer}
           </div>
         </aside>
 
-        {/* Main 2/3 */}
-        <main className="w-[66.667%] bg-brand-paper px-4 py-3">
+        <main className="w-2/3 bg-brand-cream px-4 py-3">
           <MainSection num="01" title={labels.main.careerObjective} className="mb-2.5">
-            <blockquote className="relative border-l-[3px] border-brand-accent bg-white px-2.5 py-1.5 text-[8.5px] leading-relaxed text-cv-body shadow-card">
+            <blockquote className="objective-quote relative border-l-[3px] border-brand-coral bg-white px-2.5 py-1.5 text-[8.5px] leading-relaxed text-cv-body shadow-card">
               <span
-                className="pointer-events-none absolute -left-0.5 -top-1 font-serif text-2xl leading-none text-brand-accent/30"
+                className="pointer-events-none absolute -left-0.5 -top-1 font-playfair text-2xl leading-none text-brand-coral/25"
                 aria-hidden
               >
-                "
+                “
               </span>
               {data.careerObjective}
             </blockquote>
@@ -223,16 +241,16 @@ export default function CVTemplate({
             {data.education.map((edu, i) => (
               <div
                 key={i}
-                className="flex items-start justify-between gap-2 rounded-sm border border-cv-line/60 bg-white px-2 py-1"
+                className="flex items-start justify-between gap-2 rounded border border-cv-line/70 bg-white px-2 py-1"
               >
                 <div>
                   <p className="text-[9.5px] font-bold text-cv-ink">{edu.school}</p>
                   <p className="text-[8.5px] text-cv-muted">{edu.major}</p>
                 </div>
                 <div className="shrink-0 text-right">
-                  <p className="text-[8px] font-semibold text-brand-ocean">{edu.period}</p>
+                  <p className="text-[8px] font-semibold text-brand-terracotta">{edu.period}</p>
                   {edu.gpa && (
-                    <p className="mt-0.5 rounded bg-brand-mist px-1.5 py-px text-[7.5px] font-bold text-brand-navy">
+                    <p className="mt-0.5 rounded bg-brand-blush px-1.5 py-px text-[7.5px] font-bold text-brand-charcoal">
                       {edu.gpa}
                     </p>
                   )}
@@ -246,47 +264,45 @@ export default function CVTemplate({
               {data.projects.map((project, i) => (
                 <article key={i} className="project-card">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="text-[9.5px] font-bold leading-tight text-cv-ink">
+                    <h3 className="font-playfair text-[9.5px] font-semibold leading-tight text-cv-ink">
                       {project.name}
                     </h3>
-                    <time className="shrink-0 rounded bg-brand-navy px-1.5 py-px text-[7px] font-bold text-white">
+                    <time className="shrink-0 rounded bg-brand-charcoal px-1.5 py-px text-[7px] font-bold text-brand-gold">
                       {project.period}
                     </time>
                   </div>
-                  <p className="mt-0.5 text-[8px] font-semibold text-brand-ocean">
+                  <p className="mt-0.5 text-[8px] font-semibold text-brand-terracotta">
                     {project.role}
                   </p>
-                  <div className="mt-1 flex flex-wrap gap-1">
-                    {project.techStack.map((tech) => (
-                      <span key={tech} className="tech-pill">
-                        {tech}
+                  <p className="mt-1 text-[7px] font-medium uppercase tracking-wider text-cv-muted">
+                    {labels.main.toolsLabel}
+                  </p>
+                  <div className="mt-0.5 flex flex-wrap gap-1">
+                    {project.tools.map((tool) => (
+                      <span key={tool} className="creative-pill">
+                        {tool}
                       </span>
                     ))}
                   </div>
                   <p className="mt-1 text-[8.5px] leading-snug text-cv-body">{project.summary}</p>
-                  <ul className="mt-1 space-y-0.5">
+                  <ul className="mt-1 list-disc space-y-0.5 pl-3.5 text-[8px] leading-snug text-cv-muted marker:text-brand-coral">
                     {project.bullets.map((bullet, j) => (
-                      <li
-                        key={j}
-                        className="flex gap-1.5 text-[8px] leading-snug text-cv-muted before:mt-1.5 before:h-1 before:w-1 before:shrink-0 before:rounded-full before:bg-brand-accent before:content-['']"
-                      >
-                        <span>{bullet}</span>
-                      </li>
+                      <li key={j}>{bullet}</li>
                     ))}
                   </ul>
-                  {(project.result || project.githubUrl) && (
+                  {(project.result || project.portfolioUrl) && (
                     <p className="mt-1 flex flex-wrap items-center gap-1 text-[7.5px]">
                       {project.result && (
-                        <span className="font-bold text-brand-navy">{project.result}</span>
+                        <span className="font-bold text-brand-charcoal">{project.result}</span>
                       )}
-                      {project.githubUrl && (
+                      {project.portfolioUrl && (
                         <a
-                          href={project.githubUrl}
-                          className="font-semibold text-brand-sky underline decoration-brand-accent/50 underline-offset-2"
+                          href={project.portfolioUrl}
+                          className="font-semibold text-brand-terracotta underline decoration-brand-coral/40 underline-offset-2"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          {labels.main.viewSource}
+                          {labels.main.viewPortfolio}
                         </a>
                       )}
                     </p>
@@ -302,14 +318,16 @@ export default function CVTemplate({
                 {data.activities.map((act, i) => (
                   <li
                     key={i}
-                    className="flex gap-2 text-[8px] leading-snug border-b border-cv-line/50 pb-1 last:border-0"
+                    className="flex gap-2 border-b border-cv-line/50 pb-1 text-[8px] leading-snug last:border-0"
                   >
-                    <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
+                    <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-brand-coral" />
                     <div>
                       <span className="font-bold text-cv-ink">
                         {act.title}
                         {act.period && (
-                          <span className="ml-1 font-normal text-brand-ocean">· {act.period}</span>
+                          <span className="ml-1 font-normal text-brand-terracotta">
+                            · {act.period}
+                          </span>
                         )}
                       </span>
                       <span className="text-cv-muted"> — {act.description}</span>
