@@ -5,6 +5,7 @@ import { cvData, type CVData } from "@/data/cv";
 import { uiLabels, type Locale } from "@/i18n/ui";
 import CVScaleFit from "@/components/CVScaleFit";
 import CVTemplate from "@/components/CVTemplate";
+import GalleryCarousel from "@/components/GalleryCarousel";
 import PreviewToolbar from "@/components/PreviewToolbar";
 
 export default function CVPageClient() {
@@ -75,6 +76,8 @@ export default function CVPageClient() {
             <CVTemplate data={displayData} labels={labels} locale={locale} />
           )}
         </CVScaleFit>
+
+        <GalleryCarousel title={labels.page.galleryTitle} />
       </div>
     </div>
   );

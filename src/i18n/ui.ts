@@ -34,6 +34,7 @@ export type UILabels = {
     brand: string;
     previewLabel: string;
     subtitle: string;
+    galleryTitle: string;
     print: string;
     switchToEn: string;
     switchToVi: string;
@@ -77,6 +78,7 @@ export const uiLabels: Record<Locale, UILabels> = {
       brand: "Business Creative",
       previewLabel: "Xem trước",
       subtitle: "Thiết kế hình ảnh · Sáng tạo nội dung · Visual Brand",
+      galleryTitle: "Tác phẩm tiêu biểu",
       print: "Xuất PDF",
       switchToEn: "English",
       switchToVi: "Tiếng Việt",
@@ -118,6 +120,7 @@ export const uiLabels: Record<Locale, UILabels> = {
       brand: "Business Creative",
       previewLabel: "Preview",
       subtitle: "Visual Design · Content Creation · Brand",
+      galleryTitle: "Featured Work",
       print: "Export PDF",
       switchToEn: "English",
       switchToVi: "Tiếng Việt",
