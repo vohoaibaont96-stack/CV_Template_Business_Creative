@@ -226,7 +226,7 @@ export default function CVTemplate({
           </div>
         </aside>
 
-        <main className="w-2/3 bg-brand-cream px-4 py-3">
+        <main className="cv-main w-2/3 bg-brand-cream px-4 py-3">
           <MainSection num="01" title={labels.main.careerObjective} className="mb-2.5">
             <blockquote className="objective-quote relative border-l-[3px] border-brand-coral bg-white px-2.5 py-1.5 text-[8.5px] leading-relaxed text-cv-body shadow-card">
               <span

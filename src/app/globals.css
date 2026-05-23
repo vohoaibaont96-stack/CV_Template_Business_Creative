@@ -109,11 +109,11 @@
 
 .preview-stage {
   width: 100%;
-  padding: 0.5rem 0.5rem 1rem;
+  padding: 0.5rem 0.5rem 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.5rem;
   box-sizing: border-box;
   overflow: auto;
 }
@@ -351,18 +351,34 @@
   }
 }
 
-/* Khổ A4 */
+/* Khổ A4 — màn hình: cao theo nội dung; in PDF: cố định 297mm */
 .cv-page {
+  display: flex;
+  flex-direction: column;
   width: 210mm;
-  min-height: 297mm;
-  max-height: 297mm;
-  overflow: hidden;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow: visible;
   box-sizing: border-box;
   box-shadow: 0 25px 50px -12px rgba(var(--rgb-charcoal), 0.2);
 }
 
+.cv-page.cv-loading {
+  min-height: 297mm;
+}
+
 .cv-body {
-  height: calc(297mm - 118px);
+  display: flex;
+  flex: 0 0 auto;
+  align-items: stretch;
+  height: auto;
+  min-height: 0;
+}
+
+.cv-main {
+  flex: 1;
+  min-width: 0;
 }
 
 .cv-avatar {
@@ -401,6 +417,9 @@
 }
 
 .cv-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
   background: linear-gradient(
     165deg,
     var(--brand-charcoal) 0%,
@@ -587,12 +606,20 @@
   .cv-page {
     width: 210mm !important;
     height: 297mm !important;
+    min-height: 297mm !important;
     max-height: 297mm !important;
     margin: 0 auto !important;
     box-shadow: none !important;
     overflow: hidden !important;
     page-break-after: always;
     page-break-inside: avoid;
+  }
+
+  .cv-body {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden;
   }
 
   .gallery-section {
