@@ -7,6 +7,7 @@ import CVScaleFit from "@/components/CVScaleFit";
 import CVTemplate from "@/components/CVTemplate";
 import GalleryCarousel from "@/components/GalleryCarousel";
 import PreviewToolbar from "@/components/PreviewToolbar";
+import StudioBackground from "@/components/StudioBackground";
 
 export default function CVPageClient() {
   const [locale, setLocale] = useState<Locale>("vi");
@@ -57,6 +58,8 @@ export default function CVPageClient() {
 
   return (
     <div className="preview-shell">
+      <StudioBackground />
+
       <PreviewToolbar
         locale={locale}
         labels={labels}
@@ -66,16 +69,22 @@ export default function CVPageClient() {
       />
 
       <div className="preview-stage">
-        <CVScaleFit>
-          {loading && locale === "en" && !enData ? (
-            <div className="cv-page cv-loading" aria-busy="true" aria-live="polite">
-              <div className="cv-loading__spinner" />
-              <p className="cv-loading__text">{labels.page.translating}</p>
-            </div>
-          ) : (
-            <CVTemplate data={displayData} labels={labels} locale={locale} />
-          )}
-        </CVScaleFit>
+        <div className="cv-paper-wrap">
+          <div className="cv-paper-glow" aria-hidden />
+          <CVScaleFit>
+            {loading && locale === "en" && !enData ? (
+              <div className="cv-page cv-loading cv-reveal" aria-busy="true" aria-live="polite">
+                <div className="cv-loading__ring" aria-hidden />
+                <div className="cv-loading__spinner" />
+                <p className="cv-loading__text">{labels.page.translating}</p>
+              </div>
+            ) : (
+              <div className="cv-reveal" key={locale}>
+                <CVTemplate data={displayData} labels={labels} locale={locale} />
+              </div>
+            )}
+          </CVScaleFit>
+        </div>
 
         <GalleryCarousel title={labels.page.galleryTitle} />
       </div>

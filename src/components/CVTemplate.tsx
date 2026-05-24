@@ -67,7 +67,7 @@ function ContactItem({
 }) {
   return (
     <div className="contact-chip">
-      <span className="block text-[6.5px] font-bold uppercase tracking-widest text-brand-gold/80">
+      <span className="block text-[7.5px] font-bold uppercase tracking-widest text-brand-gold/80">
         {label}
       </span>
       {href ? (
@@ -108,7 +108,7 @@ export default function CVTemplate({
 
         <div className="relative flex items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
-            <p className="text-[7px] font-bold uppercase tracking-[0.38em] text-brand-gold/90">
+            <p className="text-[8px] font-bold uppercase tracking-[0.38em] text-brand-gold/90">
               {labels.cvDocument}
             </p>
             <h1 className="mt-0.5 font-playfair text-[27px] font-semibold leading-none tracking-tight text-white">
@@ -181,7 +181,7 @@ export default function CVTemplate({
               ).map(([label, items]) =>
                 items.length > 0 ? (
                   <div key={label}>
-                    <p className="mb-1 text-[7px] font-semibold text-white/55">{label}</p>
+                    <p className="mb-1 text-[8px] font-semibold text-white/55">{label}</p>
                     <SkillPills items={[...items]} />
                   </div>
                 ) : null,
@@ -219,7 +219,7 @@ export default function CVTemplate({
           </SidebarSection>
 
           <div
-            className="relative z-10 mt-auto pt-2 text-[6.5px] uppercase tracking-[0.2em] text-white/35"
+            className="relative z-10 mt-auto pt-2 text-[7.5px] uppercase tracking-[0.2em] text-white/35"
             aria-hidden
           >
             {labels.sidebar.footer}

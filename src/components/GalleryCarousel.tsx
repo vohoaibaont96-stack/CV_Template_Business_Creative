@@ -46,7 +46,7 @@ export default function GalleryCarousel({
   const current = images[index];
 
   return (
-    <section className="gallery-section" aria-label={title || "Portfolio gallery"}>
+    <section className="gallery-section gallery-reveal" aria-label={title || "Portfolio gallery"}>
       {/* Màn hình: carousel cuối trang */}
       <div className="gallery-screen no-print">
         {title && <p className="gallery-section__title">{title}</p>}

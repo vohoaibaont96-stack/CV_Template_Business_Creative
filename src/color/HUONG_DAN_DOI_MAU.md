@@ -7,7 +7,7 @@ Toàn bộ màu website và CV lấy từ **một file**: [`theme.ts`](./theme.t
 1. Mở `src/color/theme.ts`.
 2. Sửa mã hex trong object `brand` (màu chính) và `cv` (màu chữ).
 3. Cập nhật `rgb` nếu bạn đổi `charcoal`, `coral`, `gold` hoặc `cream` (dùng cho độ trong suốt).
-4. Lưu file → chạy lại `npm run dev` hoặc deploy.
+4. Lưu file và làm mới trình duyệt.
 
 Không cần sửa `globals.css` hay `tailwind.config.ts` trừ khi thêm tên màu mới.
 
@@ -47,7 +47,6 @@ Tra cứu nhanh: mở màu trên [google.com/search?q=hex+to+rgb](https://www.go
 Trong `theme.ts` có object `presets` (creative, navy, editorial). Để dùng preset **navy**:
 
 ```ts
-// Thay nội dung brand bằng preset (copy từng dòng hoặc):
 export const brand = { ...presets.navy };
 ```
 

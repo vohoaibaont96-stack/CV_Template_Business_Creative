@@ -25,10 +25,11 @@ export default function PreviewToolbar({
     <header className="preview-toolbar no-print">
       <div className="preview-toolbar__inner">
         <div className="preview-toolbar__brand">
-          <span className="preview-toolbar__mark" aria-hidden />
+          <span className="preview-toolbar__mark preview-toolbar__mark--live" aria-hidden />
           <div>
             <p className="preview-toolbar__name">{p.brand}</p>
             <p className="preview-toolbar__meta">
+              <span className="preview-toolbar__live" aria-hidden />
               {p.previewLabel}
               <span className="preview-toolbar__dot" aria-hidden />
               A4

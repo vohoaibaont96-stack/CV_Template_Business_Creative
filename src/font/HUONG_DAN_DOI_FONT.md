@@ -15,7 +15,7 @@ export const fonts = {
 };
 ```
 
-3. Lưu → `npm run dev` hoặc deploy.
+3. Lưu file và làm mới trình duyệt.
 
 ## Ba vai trò font
 

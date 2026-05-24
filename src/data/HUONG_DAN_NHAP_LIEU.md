@@ -2,9 +2,20 @@
 
 Mẫu CV cho **thiết kế hình ảnh**, **sáng tạo nội dung** và **visual brand**. Nội dung lấy từ `src/data/cv.ts`.
 
-**Ảnh đại diện** (sidebar): `src/avatar/config.ts` — xem `src/avatar/HUONG_DAN_ANH_DAI_DIEN.md`.
+| Tuỳ chỉnh | File | Hướng dẫn |
+|-----------|------|-----------|
+| Nội dung CV | `src/data/cv.ts` | File này |
+| Ảnh đại diện | `src/avatar/config.ts` | `src/avatar/HUONG_DAN_ANH_DAI_DIEN.md` |
+| Màu / font | `src/color/theme.ts`, `src/font/config.ts` | `HUONG_DAN_DOI_MAU.md`, `HUONG_DAN_DOI_FONT.md` |
+| Gallery portfolio | `src/data/gallery.ts` + `public/gallery/` | Ảnh case study in kèm trang 2 |
 
-**Font Google**: `src/font/config.ts` — xem `src/font/HUONG_DAN_DOI_FONT.md`.
+## Layout chuẩn ngành sáng tạo
+
+| Vùng | Nội dung | Ghi chú |
+|------|----------|---------|
+| **Header tối** | Họ tên, vị trí, tagline, chip highlight, liên hệ | Portfolio link **bắt buộc** |
+| **Sidebar (~33%)** | Ảnh, năng lực sáng tạo (design/content/software/media), chứng chỉ, ngôn ngữ | Gradient tối — thể hiện visual identity |
+| **Main (~67%)** | Mục tiêu → Học vấn → **Case study dự án** → Hoạt động | Dự án là phần quan trọng nhất |
 
 ## Ngôn ngữ
 
@@ -45,4 +56,8 @@ Giữ **đúng 1 trang A4** khi in — tối đa 2 dự án nếu nội dung dà
 
 ## In PDF
 
-**Xuất PDF** hoặc Ctrl+P → A4 → **bật in nền**.
+**Xuất PDF** hoặc Ctrl+P → A4 → **bật in nền** để giữ header và sidebar tối.
+
+## Xem thay đổi
+
+Sau khi sửa `cv.ts` hoặc file cấu hình, lưu và làm mới trình duyệt trên trang preview.

@@ -11,7 +11,7 @@
    src: "/avatar/anh-cua-toi.jpg",
    alt: "Nguyễn Văn A — Content Creator",
    ```
-3. Lưu → `npm run dev` hoặc deploy lại.
+3. Lưu file và làm mới trình duyệt.
 
 Không cần sửa `cv.ts` hay component React.
 
