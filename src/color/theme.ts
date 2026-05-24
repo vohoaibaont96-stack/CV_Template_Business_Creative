@@ -5,92 +5,76 @@
  * ═══════════════════════════════════════════════════════════════
  */
 
-/** Màu thương hiệu (header CV, sidebar, nút, accent) */
+/** Màu thương hiệu — tone creative năng động (coral + magenta + vàng) */
 export const brand = {
-  /** Nền header & sidebar tối */
-  charcoal: "#1c1917",
-  warm: "#292524",
-  espresso: "#44403c",
-  /** Màu nhấn chính — tiêu đề, viền, bullet */
-  coral: "#e85d4c",
-  terracotta: "#c45c3e",
-  /** Vàng đồng — nhãn phụ, badge thời gian */
-  gold: "#c9a227",
-  /** Nền cột phải & giấy CV */
-  cream: "#faf7f2",
-  blush: "#f5ebe6",
-  /** Nền trang web xem trước */
-  mist: "#ede8e3",
-  paper: "#fdfcfa",
+  charcoal: "#120a1a",
+  warm: "#1f1230",
+  espresso: "#352447",
+  coral: "#ff5a4f",
+  terracotta: "#ff3d7a",
+  gold: "#ffb020",
+  cream: "#fff8f3",
+  blush: "#ffe4ef",
+  mist: "#f3e8ff",
+  paper: "#fffcfa",
 } as const;
 
-/** Màu chữ trên CV */
 export const cv = {
-  ink: "#1c1917",
-  body: "#44403c",
-  muted: "#78716c",
-  line: "#d6d3d1",
+  ink: "#1a0f24",
+  body: "#3d2d4a",
+  muted: "#6d5c7a",
+  line: "#e5d0e8",
 } as const;
 
-/** Giao diện toolbar, gallery, nút (có thể đồng bộ với brand) */
 export const ui = {
   white: "#ffffff",
-  error: "#b91c1c",
-  toolbarMeta: "#64748b",
-  toolbarDot: "#94a3b8",
-  btnGhostLabel: "#334155",
+  error: "#e11d48",
+  toolbarMeta: "#5c4d6b",
+  toolbarDot: "#8b7a9e",
+  btnGhostLabel: "#2d1f3d",
 } as const;
 
-/**
- * Giá trị R,G,B (không có #) — dùng cho rgba(var(--rgb-xxx), 0.5)
- * Khi đổi màu hex ở trên, cập nhật số RGB tương ứng tại đây.
- */
 export const rgb = {
-  charcoal: "28, 25, 23",
-  coral: "232, 93, 76",
-  gold: "201, 162, 39",
-  cream: "250, 247, 242",
+  charcoal: "18, 10, 26",
+  coral: "255, 90, 79",
+  gold: "255, 176, 32",
+  cream: "255, 248, 243",
+  magenta: "255, 61, 122",
 } as const;
 
-/** Preset gợi ý — copy vào `brand` / `cv` nếu muốn đổi nhanh cả bộ */
 export const presets = {
-  /** Mặc định: coral + charcoal (creative) */
   creative: { ...brand },
-  /** Xanh navy — tone business truyền thống */
   navy: {
-    charcoal: "#0f2744",
-    warm: "#1a3a5c",
-    espresso: "#2d5a87",
-    coral: "#2d7ab8",
-    terracotta: "#1a4d7c",
-    gold: "#00b4d8",
-    cream: "#f8fafc",
-    blush: "#e8eef4",
+    charcoal: "#0a1628",
+    warm: "#132d4a",
+    espresso: "#1e4976",
+    coral: "#38bdf8",
+    terracotta: "#0ea5e9",
+    gold: "#22d3ee",
+    cream: "#f0f9ff",
+    blush: "#e0f2fe",
     mist: "#e2e8f0",
     paper: "#ffffff",
   },
-  /** Tím editorial */
   editorial: {
-    charcoal: "#1e1b2e",
-    warm: "#2d2a3e",
-    espresso: "#4a4560",
-    coral: "#7c3aed",
-    terracotta: "#6d28d9",
-    gold: "#a78bfa",
-    cream: "#faf8ff",
-    blush: "#f3efff",
-    mist: "#ece8f5",
+    charcoal: "#1a1030",
+    warm: "#2a1a45",
+    espresso: "#4c3575",
+    coral: "#a855f7",
+    terracotta: "#ec4899",
+    gold: "#fbbf24",
+    cream: "#faf5ff",
+    blush: "#f3e8ff",
+    mist: "#ede9fe",
     paper: "#fdfcff",
   },
 } as const;
 
-/** Map cho Tailwind — không cần sửa */
 export const tailwindBrand = brand;
 export const tailwindCv = cv;
 
-/** Khối CSS inject vào :root (layout.tsx) */
 export function getThemeCssBlock(): string {
-  const lines: string[] = [
+  return [
     ":root {",
     `  --brand-charcoal: ${brand.charcoal};`,
     `  --brand-warm: ${brand.warm};`,
@@ -112,7 +96,7 @@ export function getThemeCssBlock(): string {
     `  --rgb-coral: ${rgb.coral};`,
     `  --rgb-gold: ${rgb.gold};`,
     `  --rgb-cream: ${rgb.cream};`,
+    `  --rgb-magenta: ${rgb.magenta};`,
     "}",
-  ];
-  return lines.join("\n");
+  ].join("\n");
 }

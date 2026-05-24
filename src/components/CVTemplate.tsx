@@ -21,7 +21,7 @@ function MainSection({
     <section className={className}>
       <div className="mb-1 flex items-baseline gap-2">
         <span className="section-num">{num}</span>
-        <h2 className="section-heading font-playfair">{title}</h2>
+        <h2 className="section-heading">{title}</h2>
         <span className="ml-auto h-px flex-1 max-w-[8rem] bg-gradient-to-r from-brand-coral/40 to-transparent" />
       </div>
       {children}
@@ -114,13 +114,13 @@ export default function CVTemplate({
             <p className="text-[8px] font-bold uppercase tracking-[0.38em] text-brand-gold/90">
               {labels.cvDocument}
             </p>
-            <h1 className="mt-0.5 font-playfair text-[27px] font-semibold leading-none tracking-tight text-white">
+            <h1 className="mt-0.5 font-display text-[27px] font-bold leading-tight tracking-tight text-white">
               {header.fullName}
             </h1>
             <p className="mt-1.5 text-[11.5px] font-semibold tracking-wide text-brand-coral">
               {header.position}
             </p>
-            <p className="mt-1.5 max-w-full font-serif text-[10px] italic leading-snug text-white/75 pr-2">
+            <p className="mt-1.5 max-w-full font-accent text-[10px] italic leading-snug text-white/80 pr-2">
               {header.tagline}
             </p>
             {header.highlights.length > 0 && (
@@ -233,7 +233,7 @@ export default function CVTemplate({
           <MainSection num="01" title={labels.main.careerObjective} className="mb-2.5">
             <blockquote className="objective-quote relative border-l-[3px] border-brand-coral bg-white px-2.5 py-1.5 text-[8.5px] leading-relaxed text-cv-body shadow-card">
               <span
-                className="pointer-events-none absolute -left-0.5 -top-1 font-playfair text-2xl leading-none text-brand-coral/25"
+                className="pointer-events-none absolute -left-0.5 -top-1 font-display text-2xl leading-none text-brand-coral/30"
                 aria-hidden
               >
                 “
@@ -301,7 +301,7 @@ export default function CVTemplate({
               {data.projects.map((project, i) => (
                 <article key={i} className="project-card">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-playfair text-[9.5px] font-semibold leading-tight text-cv-ink">
+                    <h3 className="text-[9.5px] font-bold leading-tight text-cv-ink">
                       {project.name}
                     </h3>
                     <time className="shrink-0 rounded bg-brand-charcoal px-1.5 py-px text-[7px] font-bold text-brand-gold">

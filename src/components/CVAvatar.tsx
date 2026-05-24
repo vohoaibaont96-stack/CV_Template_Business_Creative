@@ -1,11 +1,12 @@
 import Image from "next/image";
-import { avatarConfig } from "@/avatar/config";
+import { avatarConfig, resolveAvatarSrc } from "@/avatar/config";
 
 export default function CVAvatar() {
-  if (!avatarConfig.enabled || !avatarConfig.src) {
+  if (!avatarConfig.enabled) {
     return null;
   }
 
+  const src = resolveAvatarSrc();
   const aspectClass =
     avatarConfig.aspect === "square" ? "cv-avatar--square" : "cv-avatar--portrait";
 
@@ -15,7 +16,7 @@ export default function CVAvatar() {
     >
       <div className="cv-avatar__frame">
         <Image
-          src={avatarConfig.src}
+          src={src}
           alt={avatarConfig.alt}
           width={400}
           height={avatarConfig.aspect === "square" ? 400 : 500}
@@ -25,6 +26,7 @@ export default function CVAvatar() {
             objectPosition: avatarConfig.objectPosition,
           }}
           priority
+          unoptimized={src.endsWith(".svg")}
         />
       </div>
     </div>

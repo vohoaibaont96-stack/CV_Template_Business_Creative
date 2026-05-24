@@ -28,12 +28,19 @@ export interface AvatarConfig {
   hideInPrint: boolean;
 }
 
+export const DEFAULT_AVATAR_SRC = "/avatar/demo-portrait.svg";
+
 export const avatarConfig: AvatarConfig = {
   enabled: true,
-  src: "/avatar/demo-portrait.svg",
+  src: DEFAULT_AVATAR_SRC,
   alt: "Ảnh đại diện — thay bằng ảnh của bạn",
   aspect: "portrait",
   objectFit: "cover",
   objectPosition: "center top",
   hideInPrint: false,
 };
+
+export function resolveAvatarSrc(): string {
+  if (!avatarConfig.enabled) return "";
+  return avatarConfig.src.trim() || DEFAULT_AVATAR_SRC;
+}

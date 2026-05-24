@@ -21,9 +21,11 @@ export const fonts = {
 
 | Vai trò | Dùng cho | Class Tailwind |
 |---------|----------|----------------|
-| `sans` | Thân chữ CV, toolbar, nút | `font-sans` |
-| `display` | Họ tên, tiêu đề mục, tên dự án | `font-playfair` |
-| `accent` | Tagline nghiêng, trích dẫn | `font-serif` |
+| `sans` | Thân chữ CV, toolbar, nút, tiêu đề mục nhỏ | `font-sans` |
+| `display` | Họ tên (cỡ lớn) | `font-display` |
+| `accent` | Tagline nghiêng, trích dẫn | `font-accent` |
+
+**Mặc định:** Be Vietnam Pro + Outfit + Lora — hỗ trợ tiếng Việt đầy đủ. Tránh serif Latin-only ở cỡ chữ nhỏ.
 
 ## Preset có sẵn
 
