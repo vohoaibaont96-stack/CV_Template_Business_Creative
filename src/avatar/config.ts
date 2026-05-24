@@ -28,7 +28,7 @@ export interface AvatarConfig {
   hideInPrint: boolean;
 }
 
-export const DEFAULT_AVATAR_SRC = "/avatar/demo-portrait.svg";
+export const DEFAULT_AVATAR_SRC = "/avatar/anh_dai_dien.png";
 
 export const avatarConfig: AvatarConfig = {
   enabled: true,

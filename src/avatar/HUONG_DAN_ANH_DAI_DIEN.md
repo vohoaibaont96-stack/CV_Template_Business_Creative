@@ -36,7 +36,7 @@ Không cần sửa `cv.ts` hay component React.
 
 ## Ảnh demo
 
-File `public/avatar/demo-portrait.svg` chỉ là placeholder — xóa hoặc giữ, và đổi `src` sang ảnh thật.
+Ảnh mặc định: `public/avatar/anh_dai_dien.png` — thay file hoặc đổi `src` trong `config.ts`.
 
 ## Vị trí trên CV
 

@@ -14,4 +14,4 @@ Hướng dẫn đầy đủ: [`src/avatar/HUONG_DAN_ANH_DAI_DIEN.md`](../../src/
 
 ## Ảnh demo
 
-`demo-portrait.svg` — placeholder, thay bằng ảnh thật khi dùng CV chính thức.
+Ảnh mặc định: `anh_dai_dien.png` — thay bằng ảnh của bạn (giữ tên hoặc đổi `src` trong `src/avatar/config.ts`).
