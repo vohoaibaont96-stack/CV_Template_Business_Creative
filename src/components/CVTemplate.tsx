@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { featureEnabled } from "@/config";
+import { featureEnabled, shouldShowCVSection } from "@/config";
 import { getMainSectionNumbers } from "@/lib/cv-sections";
 import { hasCreativeSkills, normalizeCVData } from "@/lib/normalize-cv";
 import { cvData, type CVData } from "@/resume";
@@ -100,7 +100,7 @@ export default function CVTemplate({
   const { header, creativeSkills } = safe;
   const sg = labels.sidebar.skillGroups;
   const sectionNum = useMemo(() => getMainSectionNumbers(safe), [safe]);
-  const showCreativeSkills = featureEnabled("creativeSkills") && hasCreativeSkills(safe);
+  const showCreativeSkills = shouldShowCVSection("creativeSkills", hasCreativeSkills(safe));
 
   return (
     <article
@@ -132,7 +132,7 @@ export default function CVTemplate({
                 {header.tagline}
               </p>
             )}
-            {featureEnabled("headerHighlights") && header.highlights.length > 0 && (
+            {shouldShowCVSection("headerHighlights", header.highlights.length > 0) && (
               <div className="mt-2 flex flex-wrap gap-1">
                 {header.highlights.map((h) => (
                   <span key={h} className="highlight-chip">
@@ -227,7 +227,7 @@ export default function CVTemplate({
             </SidebarSection>
           )}
 
-          {featureEnabled("certifications") && safe.certifications.length > 0 && (
+          {shouldShowCVSection("certifications", safe.certifications.length > 0) && (
             <SidebarSection title={labels.sidebar.certifications}>
               <ul className="space-y-1.5">
                 {safe.certifications.map((cert, i) => (
@@ -245,7 +245,7 @@ export default function CVTemplate({
             </SidebarSection>
           )}
 
-          {featureEnabled("languages") && safe.languages.length > 0 && (
+          {shouldShowCVSection("languages", safe.languages.length > 0) && (
             <SidebarSection title={labels.sidebar.languages}>
               <ul className="space-y-1.5">
                 {safe.languages.map((lang, i) => (

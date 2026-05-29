@@ -112,12 +112,22 @@ Chọn font trên [Google Fonts](https://fonts.google.com/) — copy tên vào `
 
 ```ts
 displayMode: "basic" | "advanced"
+display: { hideEmptySections: true }  // mặc định: ẩn mục khi chưa có dữ liệu
 ```
 
 | Chế độ | Ý nghĩa |
 |--------|---------|
 | `basic` | CV + in/PDF — ẩn gallery, dịch EN, DOCX, nền studio |
 | `advanced` | Theo từng `features.*` bên dưới |
+
+### `display.hideEmptySections`
+
+| Giá trị | Hành vi |
+|---------|---------|
+| `true` (mặc định) | Mục trống (không có `experience[]`, `projects[]`…) **tự ẩn** dù `features.*` bật |
+| `false` | Vẫn hiện **tiêu đề + STT** mục nếu bật trong `features` — dùng khi muốn giữ khung CV |
+
+Ví dụ: bật `features.experience: true` nhưng chưa nhập kinh nghiệm → với `hideEmptySections: false` vẫn thấy mục 03 (trống nội dung).
 
 ### Thứ tự STT cột phải CV (khi bật đủ mục)
 

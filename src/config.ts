@@ -12,6 +12,14 @@ export const config = {
    */
   displayMode: "advanced" as DisplayMode,
 
+  display: {
+    /**
+     * true (mặc định): ẩn mục CV khi không có dữ liệu (mảng rỗng, chuỗi trống…).
+     * false: vẫn hiện tiêu đề mục nếu bật trong `features` (để giữ khung / STT).
+     */
+    hideEmptySections: true,
+  },
+
   /**
    * Bật/tắt từng phần CV & website.
    * Ẩn mục nào → STT các mục còn lại tự đánh số lại (01, 02, 03…).
@@ -95,4 +103,14 @@ export function featureEnabled(key: keyof typeof config.features): boolean {
     return !(ADVANCED_ONLY_FEATURES as readonly string[]).includes(key);
   }
   return true;
+}
+
+/** Hiển thị mục CV: bật trong `features` và (có dữ liệu hoặc `display.hideEmptySections: false`) */
+export function shouldShowCVSection(
+  featureKey: keyof typeof config.features,
+  hasData: boolean,
+): boolean {
+  if (!featureEnabled(featureKey)) return false;
+  if (hasData) return true;
+  return !config.display.hideEmptySections;
 }

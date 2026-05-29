@@ -1,4 +1,4 @@
-import { featureEnabled } from "@/config";
+import { shouldShowCVSection } from "@/config";
 import type { CVData } from "@/resume-types";
 
 /** Thứ tự mục cột phải CV (STT 01 → 05) */
@@ -12,21 +12,25 @@ export const MAIN_SECTION_ORDER = [
 
 export type MainSectionKey = (typeof MAIN_SECTION_ORDER)[number];
 
-function isMainSectionVisible(key: MainSectionKey, data: CVData): boolean {
+function mainSectionHasData(key: MainSectionKey, data: CVData): boolean {
   switch (key) {
     case "careerObjective":
-      return featureEnabled("careerObjective") && data.careerObjective.length > 0;
+      return data.careerObjective.length > 0;
     case "education":
-      return featureEnabled("education") && data.education.length > 0;
+      return data.education.length > 0;
     case "experience":
-      return featureEnabled("experience") && data.experience.length > 0;
+      return data.experience.length > 0;
     case "activities":
-      return featureEnabled("activities") && data.activities.length > 0;
+      return data.activities.length > 0;
     case "projects":
-      return featureEnabled("projects") && data.projects.length > 0;
+      return data.projects.length > 0;
     default:
       return false;
   }
+}
+
+function isMainSectionVisible(key: MainSectionKey, data: CVData): boolean {
+  return shouldShowCVSection(key, mainSectionHasData(key, data));
 }
 
 /** STT liên tục (01, 02, …) — bỏ qua mục bị tắt hoặc không có dữ liệu */
